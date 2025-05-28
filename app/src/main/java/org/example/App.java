@@ -4,29 +4,21 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        try {
-            InputStream inputStream = App.class.getClassLoader().getResourceAsStream("inputfile.txt");
+    public FileReaderWriter fileReaderWriter;
+    public RateCard ratecard;
 
-            if (inputStream == null) {
-                System.out.println("........................File not found in classpath!");
-                return;
-            }
-            System.out.println("FILE FOUND");
-            Scanner reader = new Scanner(inputStream);
-            boolean hasLines = false;
-            while (reader.hasNextLine()) {
-                hasLines = true;
-                String data = reader.nextLine();
-                System.out.println(data);
-            }
-            if (hasLines == false) {
-                System.out.println("FILE EMPTY");
-            }
-            reader.close();
-        } catch (Exception e) {
-            System.out.println("An error occurred:");
-            e.printStackTrace();
-        }
+    public App(RateCard ratecard) {
+        this.ratecard = ratecard;
+        DataParser dataParser = new DataParser();
+        DataAggregator aggregator = new DataAggregator();
+        this.fileReaderWriter = new FileReaderWriter(aggregator, dataParser);
+    }
+
+    public static void main(String[] args) {
+        String[] input = { "inputfile.txt", "inputfile2.txt" };
+        RateCard ratecard = new RateCard(0.5, 1.0, 1000);
+        App app = new App(ratecard);
+        app.fileReaderWriter.parseFiles(input);
+        app.fileReaderWriter.generateOutput(ratecard);
     }
 }
