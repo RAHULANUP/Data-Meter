@@ -15,8 +15,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-        String[] input = { "inputfile.txt", "inputfile2.txt" };
-        RateCard ratecard = new RateCard(0.5, 1.0, 1000);
+        String[] input = { "inputfile.txt", "inputfile01.txt" };
+        RateCard ratecard = new RateCard(0.2, 0.5, 1000);
         App app = new App(ratecard);
         app.fileReaderWriter.parseFiles(input);
         app.fileReaderWriter.generateOutput(ratecard);

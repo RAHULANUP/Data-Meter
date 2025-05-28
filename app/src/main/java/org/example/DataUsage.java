@@ -4,10 +4,10 @@ package org.example;
 // 4GHome,5GHome,4GRoaming,5GRoaming
 
 public class DataUsage {
-    double fourGHome;
-    double fiveGHome;
-    double fourGRoaming;
-    double fiveGRoaming;
+    double fourGHome = 0;
+    double fiveGHome = 0;
+    double fourGRoaming = 0;
+    double fiveGRoaming = 0;
 
     public void addUsage(boolean isRoaming, double fourG, double fiveG) {
 

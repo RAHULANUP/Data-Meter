@@ -1,5 +1,7 @@
 package org.example;
 
+// RateCard is the class used to initialize the 4G rates, 5G rates and the threshold values and calculate the cost
+
 public class RateCard {
     public double fourGRate;
     public double fiveGRate;
@@ -11,6 +13,8 @@ public class RateCard {
         this.threshold = threshold;
     }
 
+    // calculate method takes in the datausage value and performs the calculation
+    // required based on the 4G home, 4G roaming, 5G home ,5G roaming
     public double calculate(DataUsage usage) {
         double cost = 0;
         cost = cost + usage.fourGHome * fourGRate;
