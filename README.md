@@ -15,3 +15,7 @@
 
 + ./gradlew build
 + ./gradlew run
+
+## Tests
+
++ ./gradlew test
