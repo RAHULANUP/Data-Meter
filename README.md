@@ -9,3 +9,5 @@
 
 ## To run the code
 
++ git clone https://github.com/RAHULANUP/Data-Meter.git
++ cd Data-Meter
